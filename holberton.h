@@ -68,7 +68,7 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 /* frees */
 void allfree(void);
 void dfree(char **array);
-void free_list(list_t **head);
+void free_list(list_t *head);
 
 /* helpers */
 

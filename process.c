@@ -59,13 +59,16 @@ void child(char **args, char *name)
 	{
 		if (execve(args[0], args, environ) == EOF)
 		{
+			dfree(args);
+			allfree();
 			perror(name);
-			free(init()->buff);
 			exit(127);
 		}
 	}
 	else
 	{
+		dfree(args);
+		free(init()->buff);
 		wait(&status);
 	}
 	

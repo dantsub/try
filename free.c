@@ -19,19 +19,13 @@ void dfree(char **array)
  * @head: head of linked list.
  * Return: nothing.
  */
-void free_list(list_t **head)
+void free_list(list_t *head)
 {
-	list_t *curr;
-
 	if (head)
 	{
-		if (*head)
-		{	curr = *head;
-			free_list(&(*(*head)).next);
-			free(curr->var);
-			free(curr);
-		}
-		*head = NULL;
+		free_list(head->next);
+		free(head->var);
+		free(head);
 	}
 }
 
@@ -44,7 +38,7 @@ void allfree(void)
 	if (init()->buff)
 		free(init()->buff);
 	if (init()->henv)
-		free_list(&init()->henv);
+		free_list(init()->henv);
 	if (init()->hpath)
-		free_list(&init()->hpath);
+		free_list(init()->hpath);
 }

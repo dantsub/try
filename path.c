@@ -50,13 +50,14 @@ int check_path(char *args)
  */
 void list_path(void)
 {
-	char *path = NULL, *tok = NULL;
+	char *path = NULL;
+	char **routes = NULL;
+	int i = 0;
 
 	path = _getenv("PATH");
-	tok = strtok(path, ":");
-	while (tok)
-	{
-		addnode_end(&init()->hpath, tok);
-		tok = strtok(NULL, ":");
-	}
+	routes = split_args(path, ":");
+	while (routes[i])
+		addnode_end(&init()->hpath, routes[i++]);
+	free(path);
+	free(routes);
 }

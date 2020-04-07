@@ -16,10 +16,11 @@ char *_getenv(char *name)
 	if (!env)
 		return (NULL);
 	pos = _strlen(name) + 1;
-	var = malloc((env->len + 1 - pos) * sizeof(char));
+	var = malloc(((env->len + 2) - pos) * sizeof(char));
 	if (!var)
 		return (NULL);
 	var = _strcpy(var, (pos + env->var));
+	printf("var size->[%lu] and str->{%s}\n", sizeof(var), var);
 	return (var);
 }
 /**
@@ -47,4 +48,5 @@ void lenv(void)
 	array[i] = 0;
 	for (i = 0; array[i]; i++)
 		addnode_end(&init()->henv, array[i]);
+	free(array);
 }

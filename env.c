@@ -20,7 +20,6 @@ char *_getenv(char *name)
 	if (!var)
 		return (NULL);
 	var = _strcpy(var, (pos + env->var));
-	printf("var size->[%lu] and str->{%s}\n", sizeof(var), var);
 	return (var);
 }
 /**

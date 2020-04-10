@@ -20,6 +20,7 @@ char *path(char *args)
 		_strcat(path, args);
 		if (!stat(path, &st))
 			return (path);
+		free(path);
 		cpy = cpy->next;
 	}
 	free(path);

@@ -16,7 +16,6 @@ void prompt(char *av)
 		{
 			if (_strncmp(init()->buff, "\n", 1))
 			{
-				printf("1-llego aqui \n");
 				process(NULL, av);
 			}
 		}

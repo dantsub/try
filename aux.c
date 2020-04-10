@@ -28,7 +28,7 @@ char **split_args(char *s, char *delim)
 	tok = strtok(cpy, delim);
 	size = 0;
 	while (tok)
-	{	array[size] = malloc(sizeof(char) * _strlen(tok) + 1);
+	{	array[size] = malloc(sizeof(char) * (_strlen(tok) + 1));
 		if (!array[size])
 		{	free(cpy);
 			dfree(array);

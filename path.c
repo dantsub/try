@@ -23,7 +23,6 @@ char *path(char *args)
 		free(path);
 		cpy = cpy->next;
 	}
-	free(path);
 	return (NULL);
 }
 
